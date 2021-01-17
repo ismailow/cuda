@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <title>Cuda</title>
+</head>
+
+<body>
+
+    <!--Sprite-->
+    <svg style="display: none;">
+
+        <symbol id="facebook" viewBox="0 0 24 24">
+            <g>
+                <path d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-3.159 0-5.323 1.987-5.323 5.639v3.361h-3.486v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877v-2.939c.001-1.233.333-2.077 2.051-2.077z"/>
+            </g>
+        </symbol>
+
+        <symbol id="twitter" viewBox="-21 -81 681.33464 681">
+            <g>
+                <path d="m200.964844 515.292969c241.050781 0 372.871094-199.703125 372.871094-372.871094 0-5.671875-.117188-11.320313-.371094-16.9375 25.585937-18.5 47.824218-41.585937 65.371094-67.863281-23.480469 10.441406-48.753907 17.460937-75.257813 20.636718 27.054687-16.230468 47.828125-41.894531 57.625-72.488281-25.320313 15.011719-53.363281 25.917969-83.214844 31.808594-23.914062-25.472656-57.964843-41.402344-95.664062-41.402344-72.367188 0-131.058594 58.6875-131.058594 131.03125 0 10.289063 1.152344 20.289063 3.398437 29.882813-108.917968-5.480469-205.503906-57.625-270.132812-136.921875-11.25 19.363281-17.742188 41.863281-17.742188 65.871093 0 45.460938 23.136719 85.605469 58.316407 109.082032-21.5-.660156-41.695313-6.5625-59.351563-16.386719-.019531.550781-.019531 1.085937-.019531 1.671875 0 63.46875 45.171875 116.460938 105.144531 128.46875-11.015625 2.996094-22.605468 4.609375-34.558594 4.609375-8.429687 0-16.648437-.828125-24.632812-2.363281 16.683594 52.070312 65.066406 89.960937 122.425781 91.023437-44.855469 35.15625-101.359375 56.097657-162.769531 56.097657-10.5625 0-21.003906-.605469-31.2617188-1.816407 57.9999998 37.175781 126.8710938 58.871094 200.8867188 58.871094"/>
+            </g>
+        </symbol>
+
+        <symbol id="linkedin" viewBox="0 0 24 24">
+            <path d="m23.994 24v-.001h.006v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07v-2.185h-4.773v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243v7.801z"/><path d="m.396 7.977h4.976v16.023h-4.976z"/><path d="m2.882 0c-1.591 0-2.882 1.291-2.882 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909c-.001-1.591-1.292-2.882-2.882-2.882z"/>
+        </symbol>
+
+        <symbol id="email" viewBox="0 0 512 512">
+            <g>
+                <path d="M10.688,95.156C80.958,154.667,204.26,259.365,240.5,292.01c4.865,4.406,10.083,6.646,15.5,6.646
+                    c5.406,0,10.615-2.219,15.469-6.604c36.271-32.677,159.573-137.385,229.844-196.896c4.375-3.698,5.042-10.198,1.5-14.719
+                    C494.625,69.99,482.417,64,469.333,64H42.667c-13.083,0-25.292,5.99-33.479,16.438C5.646,84.958,6.313,91.458,10.688,95.156z"/>
+                <path d="M505.813,127.406c-3.781-1.76-8.229-1.146-11.375,1.542C416.51,195.01,317.052,279.688,285.76,307.885
+                    c-17.563,15.854-41.938,15.854-59.542-0.021c-33.354-30.052-145.042-125-208.656-178.917c-3.167-2.688-7.625-3.281-11.375-1.542
+                    C2.417,129.156,0,132.927,0,137.083v268.25C0,428.865,19.135,448,42.667,448h426.667C492.865,448,512,428.865,512,405.333
+                    v-268.25C512,132.927,509.583,129.146,505.813,127.406z"/>
+            </g>
+        </symbol>
+
+    </svg>
+
+
+    <!-- ===Header===-->
+<header class="header">
+    <div class="container">
+        <div class="header__inner">            
+            <img src="img/logo.png" alt="logo" class="logo">
+
+            <nav class="nav">
+                <ul class="menu">
+                    <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#works" class="nav__link">WORK</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Blog</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+
+                <div class="burger__button">
+                    <a href="#" class="burger__btn">
+                        <div class="burger__line"></div>
+                        <div class="burger__line"></div>
+                        <div class="burger__line"></div>
+                    </a>
+                </div>
+    
+                <div class="burger_nav">
+                    <ul class="burger__menu">
+                        <li class="burger__item"><a href="#" class="burger__link">Home</a></li>
+                        <li class="burger__item"><a href="#" class="burger__link">About</a></li>
+                        <li class="burger__item"><a href="#works" class="burger__link">WORK</a></li>
+                        <li class="burger__item"><a href="#" class="burger__link">Blog</a></li>
+                        <li class="burger__item"><a href="#contact" class="burger__link">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+</header>
+
+
+
+    <!-- ===Intro=== -->
+<div class="intro">
+    <div class="container">
+        
+        <div class="intro__inner">
+
+            <div class="intro__title">
+                <h1 class="title">
+                    Hi there! We are the new kids on the block <br>
+                    and we build awesome websites and mobile apps.
+                </h1>
+            </div>
+
+            <div class="button">
+                <button class="btn orange_btn">
+                    WORK WITH US!
+                </button>
+            </div> <!-- /.button-->
+        </div> <!-- /.intro__inner-->
+    </div> <!-- /.container-->
+
+</div> <!-- /.intro-->
+
+
+    <!-- ===Service=== -->
+    <div class="service">
+
+        <div class="container">
+
+            <div class="service__inner">
+                <div class="block__title"><h2>SERVICES WE PROVIDE</h2></div>
+
+                <div class="block__line blue"></div>
+
+                <div class="block__text">We are working with both individuals and businesses from all over the globe to create awesome websites and applications.</div>
+
+                <div class="service__block">
+
+                    <div class="service__item">
+                        <div class="service__icon"><img src="img/service/service1.png" alt="icon" class="icon"></div>
+                        <div class="service__title"><h2>Branding</h2></div>
+                        <div class="service__text">Lorem ipsum dolor sit amet, 
+                            consectetuer adipiscing elit, sed diam nonummy nibh.</div>
+                    </div>
+
+                    <div class="service__item">
+                        <div class="service__icon"><img src="img/service/service2.png" alt="icon" class="icon"></div>
+                        <div class="service__title"><h2>Design</h2></div>
+                        <div class="service__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem </div>
+                    </div>
+
+                    <div class="service__item">
+                        <div class="service__icon"><img src="img/service/service3.png" alt="icon" class="icon"></div>
+                        <div class="service__title"><h2>Development</h2></div>
+                        <div class="service__text">At vero eos et accusamus et iusto odio dignissimos qui blanditiis praesentium.</div>
+                    </div>
+
+                    <div class="service__item">
+                        <div class="service__icon"><img src="img/service/service4.png" alt="icon" class="icon"></div>
+                        <div class="service__title"><h2>ROCKET SCIENCE</h2></div>
+                        <div class="service__text">Et harum quidem rerum est et expedita distinctio. Nam libero tempore.</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- ===Team=== -->
+    <div class="team">
+
+        <div class="container">
+
+            <div class="team__inner">
+
+                <div class="block__title grey_text"><h2>MEET OUR BEAUTIFUL TEAM</h2></div>
+
+                <div class="block__line grey"></div>
+
+                <div class="block__text grey_text">We are a small team of designers and developers, who help brands with big ideas.</div>
+
+                <div class="team__block">
+                    <div class="team__item">
+                        <div class="avatar"></div>
+                        <div class="name">ANNE HATHAWAY</div>
+                        <div class="position">CEO / Marketing Guru</div>
+                        <div class="about">Lorem ipsum dolor sit amet, 
+                            consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</div>
+
+                        <div class="social">
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#facebook"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#twitter"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#linkedin"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#email"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="team__item">
+                        <div class="avatar"></div>
+                        <div class="name">Kate Upton</div>
+                        <div class="position">Creative Director</div>
+                        <div class="about">Duis aute irure dolor in in voluptate velit esse cillum dolore fugiat nulla pariatur. Excepteur sint occaecat non diam proident.</div>
+
+                        <div class="social">
+
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#twitter"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#linkedin"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#email"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="team__item">
+                        <div class="avatar"></div>
+                        <div class="name">Olivia Wilde</div>
+                        <div class="position">Lead Designer</div>
+                        <div class="about">Nemo enim ipsam voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem nesciunt.</div>
+
+                        <div class="social">
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#facebook"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#twitter"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#linkedin"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#email"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="team__item">
+                        <div class="avatar"></div>
+                        <div class="name">Ashley Greene</div>
+                        <div class="position">SEO / Developer</div>
+                        <div class="about">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</div>
+
+                        <div class="social">
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#facebook"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#twitter"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="social__item">
+                                <svg class="social__icon">
+                                    <use xlink:href="#email"></use>
+                                </svg>
+                            </a>
+                        </div> <!-- /.social-->
+                    </div> <!-- /.team__item-->
+                </div> <!-- /.team__block-->
+
+            </div> <!-- /.team__inner-->
+
+        </div> <!-- /.container-->
+
+    </div> <!-- /.team-->
+
+
+    <!-- ===Skills=== -->
+    <div class="skills">
+
+        <div class="container">
+
+            <div class="skills__inner">
+
+                <div class="block__title grey_text"><h2>WE GOT SKILLS!</h2></div>
+
+                <div class="block__line light_grey"></div>
+
+                <div class="block__text grey_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+                <div class="skills__block">
+                    <div class="skills__item">
+                        <img src="img/skills/webdesign.png" alt="" class="progress">
+                        <div class="percent">94%</div>
+                        <div class="skills__name">Web Design</div>
+                    </div>
+
+                    <div class="skills__item">
+                        <img src="img/skills/htmlcss.png" alt="" class="progress">
+                        <div class="percent">75%</div>
+                        <div class="skills__name">html/css</div>
+                    </div>
+
+                    <div class="skills__item">
+                        <img src="img/skills/graphdesign.png" alt="" class="progress">
+                        <div class="percent">70%</div>
+                        <div class="skills__name">GRAPHIC DESIGN</div>
+                    </div>
+
+                    <div class="skills__item">
+                        <img src="img/skills/ui.png" alt="" class="progress">
+                        <div class="percent">85%</div>
+                        <div class="skills__name">ui/ux</div>
+                    </div>
+                </div>
+
+            </div> <!-- /.scills__inner-->
+
+        </div> <!-- /.container-->
+
+    </div> <!-- /.scills-->
+
+
+
+    <!-- ===Portfolio=== -->
+    <div class="portfolio" id="works">
+
+        <div class="container">
+
+            <div class="portfolio__inner">
+
+                <div class="block__title black_text"><h2>OUR PORTFOLIO</h2></div>
+
+                <div class="block__line yellow"></div>
+
+                <div class="block__text black_text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam</div>
+
+
+                <div class="portfolio__buttons">
+
+                    <div class="portfolio__button">
+                        <button class="portfolio__btn">
+                            All
+                        </button>
+                    </div>
+
+                    <div class="portfolio__button">
+                        <button class="portfolio__btn">
+                            WEB
+                        </button>
+                    </div>
+
+                    <div class="portfolio__button">
+                        <button class="portfolio__btn">
+                            APPS
+                        </button>
+                    </div>
+
+                    <div class="portfolio__button">
+                        <button class="portfolio__btn">
+                            ICONS
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="portfolio__works">
+
+                    <div class="portfolio__work">
+
+                        <img src="img/works/work-1.png" alt="work" class="work__img">
+                        <div class="work__text">Isometric Perspective Mock-Up</div>
+
+                    </div>
+
+                    <div class="portfolio__work">
+
+                        <img src="img/works/work-2.png" alt="work" class="work__img">
+                        <div class="work__text">Isometric Perspective Mock-Up</div>
+
+                    </div>
+
+                    <div class="portfolio__work">
+
+                        <img src="img/works/work-3.png" alt="work" class="work__img">
+                        <div class="work__text">Isometric Perspective Mock-Up</div>
+
+                    </div>
+
+                    <div class="portfolio__work">
+
+                        <img src="img/works/work-4.png" alt="work" class="work__img">
+                        <div class="work__text">Isometric Perspective Mock-Up</div>
+
+                </div>   
+
+                </div> <!-- /.portfolio__works-->
+
+            <div class="button">
+                <button class="btn green_btn">
+                    LOAD MORE PROJECTS
+                </button>
+            </div> <!-- /.portfolio__button2-->
+
+        </div> <!-- /.portfolio__inner-->
+        
+    </div> <!-- /.container-->
+
+    </div> <!-- /.portfolio-->
+
+
+
+    <!-- ===Testimonials=== -->
+    <div class="testimonials">
+
+        <div class="container">
+
+            <div class="testimonials__inner">
+
+                <div class="block__title"><h2>WHAT POEPLE SAY ABOUT US</h2></div>
+
+                <div class="block__line pink"></div>
+
+                <div class="block__text">Our clients love us!</div>
+
+                <div class="comments">
+
+                    <div class="comment">
+
+                        <div class="comment__avatar"></div>
+
+                        <div class="comment__block">
+                            <div class="comment__text">“Nullam dapibus blandit orci, viverra gravida dui lobortis eget. Maecenas fringilla urna eu nisl scelerisque.”</div>
+
+                            <div class="comment__name">Chanel Iman</div>
+
+                            <div class="comment__position">CEO of Pinterest</div>
+                        </div>
+
+                    </div>
+
+                    <div class="comment">
+
+                        <div class="comment__avatar"></div>
+
+                        <div class="comment__block">
+                            <div class="comment__text">“Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.”</div>
+
+                            <div class="comment__name">ADRIANA LIMA</div>
+
+                            <div class="comment__position">Founder of Instagram</div>
+                        </div>
+
+                    </div>
+
+                    <div class="comment">
+
+                        <div class="comment__avatar"></div>
+
+                        <div class="comment__block">
+                            <div class="comment__text">“Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.”</div>
+
+                            <div class="comment__name">ANNE HATHAWAY</div>
+
+                            <div class="comment__position">Lead Designer at Behance</div>
+                        </div>
+
+                    </div>
+
+                    <div class="comment">
+
+                        <div class="comment__avatar"></div>
+
+                        <div class="comment__block">
+                            <div class="comment__text">“Phasellus non purus vel arcu tempor commodo. Fusce semper, purus vel luctus molestie, risus sem cursus neque.”</div>
+
+                            <div class="comment__name">EMMA STONE</div>
+
+                            <div class="comment__position">Co-Founder of Shazam</div>
+                        </div>
+
+                    </div>
+
+                </div> <!-- /.comments-->
+
+            </div> <!-- /.testimonials__inner-->
+
+        </div> <!-- /.container-->
+
+    </div> <!-- /.testimonials-->
+
+
+
+    <!-- ===Contact=== -->
+    <div class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="contact__inner">
+
+                <div class="block__title"><h2>WHAT POEPLE SAY ABOUT US</h2></div>
+
+                <div class="block__line dark_blue"></div>
+
+                <div class="block__text">Our clients love us!</div>
+
+                <div class="contact__form">
+
+                    <input type="text" class="contact__name" placeholder="Your Name">
+                    <input type="text" class="contact__email" placeholder="Your Email">
+                    <input type="text" class="contact__message" placeholder="Your Message">
+
+                <div class="button">
+                    <button class="btn blue_btn">
+                        SEND MESSAGE
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer__inner">
+
+                <ul class="footer__links">
+                    <li class="link_item"><a href="#" class="footer__link">Facebook</a></li>
+                    <li class="link_item"><a href="#" class="footer__link">Twitter</a></li>
+                    <li class="link_item"><a href="#" class="footer__link">Google+</a></li>
+                    <li class="link_item"><a href="#" class="footer__link">LinkedIn</a></li>
+                    <li class="link_item"><a href="#" class="footer__link">Behance</a></li>
+                    <li class="link_item"><a href="#" class="footer__link">Dribbble</a></li>
+                    <li class="link_item"><a href="#" class="footer__link">GitHub</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </footer>
+</body>
+</html>
