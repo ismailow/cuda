@@ -153,6 +153,15 @@ input:active, input:focus{
     align-items: center;
 }
 
+.header.fixed{
+    position: fixed;
+    z-index: 999;
+}
+
+.header.fixed .header__inner{
+    padding: 15px 0;
+}
+
 
 
 /* ===Nav===*/
@@ -372,6 +381,7 @@ input:active, input:focus{
 .progress{
     position: absolute;
     margin-left: 50px;
+    z-index: 1;
 }
 
 .percent{
@@ -379,16 +389,18 @@ input:active, input:focus{
     position: relative;
     top: 40px;
     right: -90px;
+    z-index: 1;
+
     color: #3c4761;
     font-size: 5rem;
     font-weight: 300;
     overflow: hidden;
-    /* margin-right: 130px; */
 }   
 
 .skills__name{
     position: relative;
     top: 100px;
+    z-index: 1;
 
     text-align: center;
     color: #3c4761;
