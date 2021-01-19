@@ -30,19 +30,42 @@ h1{
     padding: 0 10px;
 }
 
-.burger__button{
+.burger{
     display: none;
 }
 
 .burger__line{
+    position: relative;
     width: 30px;
     height: 2px;
     background-color: #fff;
     margin-top: 5px;
+    left: 0;
+    top: 0;
 }
 
-.burger_nav{
-    display: none;
+.burger__line:before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    position: absolute;
+    left: 0;
+    top: -8px;
+    z-index: 998;  
+}
+
+.burger__line:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    z-index: 998;  
 }
 
 
@@ -155,7 +178,7 @@ input:active, input:focus{
 
 .header.fixed{
     position: fixed;
-    z-index: 999;
+    z-index: 998;
 }
 
 .header.fixed .header__inner{
@@ -827,8 +850,9 @@ footer{
         display: none;
     }
 
-    .burger__button{
+    .burger{
         display: block;
+        margin-right: 20px;
     }
 
 
