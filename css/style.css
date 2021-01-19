@@ -32,6 +32,11 @@ h1{
 
 .burger{
     display: none;
+
+    background: none;
+    border: 0;
+    cursor: pointer;
+    z-index: 999;
 }
 
 .burger__line{
@@ -53,7 +58,7 @@ h1{
     position: absolute;
     left: 0;
     top: -8px;
-    z-index: 998;  
+    z-index: 999;  
 }
 
 .burger__line:after{
@@ -65,7 +70,7 @@ h1{
     position: absolute;
     left: 0;
     bottom: -8px;
-    z-index: 998;  
+    z-index: 999;  
 }
 
 
@@ -843,16 +848,53 @@ footer{
         margin: 0 10px;
     }
 
+    .container{
+        padding: 0;
+    }
+
 
 
     /* ===Nav=== */
-    .menu{
+    .header__inner{
+        position: relative;
+    }
+
+    .nav{
         display: none;
+        width: 100%;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background-color: #87509c;
+        margin-right: 0;
+    }
+
+    .nav.show {
+        display: flex;
+    }
+
+    .menu{
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .nav__item{
+        padding: 12px 15px;
+        margin-left: 100px;
+    }
+
+    .nav__item:first-child{
+        margin-left: 15px;
+    }
+
+    .nav__link{
+        font-size: 2.5rem;
     }
 
     .burger{
         display: block;
         margin-right: 20px;
+        background: none;
     }
 
 
@@ -968,8 +1010,9 @@ footer{
     /* ===Contact=== */
     .contact__form{
         margin-top: 50px;
-        width: 100%;
+        width: 90%;
         padding: 0;
+        margin: 30px auto;
     }
 
     .contact__name, .contact__email{
