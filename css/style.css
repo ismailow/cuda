@@ -30,7 +30,7 @@ h1{
     padding: 0 10px;
 }
 
-.burger{
+.burger__button{
     display: none;
 
     background: none;
@@ -40,37 +40,11 @@ h1{
 }
 
 .burger__line{
-    position: relative;
     width: 30px;
     height: 2px;
     background-color: #fff;
     margin-top: 5px;
-    left: 0;
-    top: 0;
-}
-
-.burger__line:before{
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-
-    position: absolute;
-    left: 0;
-    top: -8px;
-    z-index: 999;  
-}
-
-.burger__line:after{
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    z-index: 999;  
+    margin-left: 20px;
 }
 
 
@@ -891,10 +865,11 @@ footer{
         font-size: 2.5rem;
     }
 
-    .burger{
+    .burger__button{
         display: block;
-        margin-right: 20px;
-        background: none;
+        position: absolute;
+        left: 290px;
+        z-index: 10000;
     }
 
 
